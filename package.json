@@ -1,0 +1,36 @@
+{
+	"name": "uniview",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"version": "1.0.0",
+	"publisher": "vscode",
+	"license": "MIT",
+	"engines": {
+		"vscode": "*"
+	},
+	"scripts": {
+		"update-grammar": "node ./build/update-grammars.js"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "uniview",
+				"extensions": [
+					".uv"
+				],
+				"aliases": [
+					"Uniview",
+					"uni-view"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "uniview",
+				"scopeName": "source.uv",
+				"path": "./syntaxes/uniview.tmLanguage.json"
+			}
+		]
+	}
+}
