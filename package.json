@@ -9,9 +9,6 @@
 	"engines": {
 		"vscode": "*"
 	},
-	"scripts": {
-		"update-grammar": "node ./build/update-grammars.js"
-	},
 	"contributes": {
 		"languages": [
 			{
