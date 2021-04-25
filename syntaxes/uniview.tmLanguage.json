@@ -123,6 +123,7 @@
 			},
 			"end": "}",
 			"patterns": [
+				{"include": "#function.redirect"},
 				{"include": "#function.head"},
 				{"include": "#comment"}
 			]
@@ -231,7 +232,7 @@
 			"patterns": [
 				{
 					"name": "meta.function.uv",
-					"match": "\\b(fn)\\s+([A-Za-z0-9_]+)\\((.*)\\)\\s*((\\:)\\s([A-Za-z0-9_]+))?\\s*;",
+					"match": "\\b(fn)\\s+([A-Za-z0-9_]+)\\((.*)\\)\\s*((\\:)\\s*([A-Za-z0-9_]+))?\\s*;",
 					"captures": {
 						"1": {
 							"name": "storage.type.function"
@@ -251,6 +252,41 @@
 						},
 						"6": {
 							"name": "storage.type"
+						}
+					}
+				}
+			]
+		},
+		"function.redirect": {
+			"patterns": [
+				{
+					"name": "meta.function.uv",
+					"match": "\\b(fn)\\s+(\"[A-Za-z0-9_\\.]+\")\\s+\\((.*)\\)\\s*((\\:)\\s*([A-Za-z0-9_]+))?\\s+(as)\\s+([A-Za-z0-9_]+)\\s*;",
+					"captures": {
+						"1": {
+							"name": "storage.type.function"
+						},
+						"2": {
+							"name": "string.quoted.double"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#function.parameter"
+								}
+							]
+						},
+						"5": {
+							"name": "keyword.operator"
+						},
+						"6": {
+							"name": "storage.type"
+						},
+						"7": {
+							"name": "keyword.storage"
+						},
+						"8": {
+							"name": "entity.name.function"
 						}
 					}
 				}
@@ -312,9 +348,7 @@
 					},
 					"end": "\\)",
 					"patterns": [
-						{ "include": "#call" },
-						{ "include": "#opperator" },
-						{ "include": "#string" }
+						{ "include": "#expression" }
 					]
 				}
 			]
