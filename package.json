@@ -2,12 +2,15 @@
 	"name": "uniview",
 	"displayName": "%displayName%",
 	"description": "%description%",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"publisher": "qupa-project",
 	"license": "MIT",
 	"repository": "https://github.com/qupa-project/uniview-vscode",
 	"engines": {
 		"vscode": "*"
+	},
+	"scripts": {
+		"package": "vsce package"
 	},
 	"contributes": {
 		"languages": [
