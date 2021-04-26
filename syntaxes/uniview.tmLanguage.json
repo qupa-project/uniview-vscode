@@ -232,7 +232,7 @@
 			"patterns": [
 				{
 					"name": "meta.function.uv",
-					"match": "\\b(fn)\\s+([A-Za-z0-9_]+)\\((.*)\\)\\s*((\\:)\\s*([A-Za-z0-9_]+))?\\s*;",
+					"match": "\\b(fn)\\s+([A-Za-z0-9_]+)\\s*\\((.*)\\)\\s*((\\:)\\s*([A-Za-z0-9_]+))?\\s*;",
 					"captures": {
 						"1": {
 							"name": "storage.type.function"
@@ -337,13 +337,27 @@
 		"call": {
 			"patterns": [
 				{
-					"begin": "\\b([A-Za-z0-9_\\.]*)\\s*(#\\[(.*?)\\])?\\s*(\\()",
+					"name": "function.call",
+					"begin": "\\b([A-Za-z0-9_\\.]*)\\s*(#)(\\[(.*?)\\])?\\s*\\(",
 					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function"
 						},
 						"2": {
-							"name": "meta.template.call"
+							"name": "keyword.storage"
+						},
+						"4": {
+							"name": "meta.template.call",
+							"patterns": [
+								{
+									"name": "entity.name.type",
+									"match": "([A-Za-z0-9_\\.]*)"
+								},
+								{
+									"name": "punctuation.separator.comma",
+									"match": ","
+								}
+							]
 						}
 					},
 					"end": "\\)",
