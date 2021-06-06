@@ -3,16 +3,17 @@
 	"scopeName": "source.uv",
 	"patterns": [
 		{"include": "#comment"},
-		{"include": "#constant"},
-		{"include": "#punctuation"},
 		{"include": "#external"},
-		{"include": "#keyword"},
-		{"include": "#opperator"},
-		{"include": "#call"},
 		{"include": "#function"},
 		{"include": "#structure"},
+		{"include": "#keyword"},
 		{"include": "#class"},
-		{"include": "#declare"}
+		{"include": "#declare"},
+		{"include": "#call"},
+		{"include": "#variable"},
+		{"include": "#constant"},
+		{"include": "#punctuation"},
+		{"include": "#opperator"}
 	],
 	"repository": {
 		"constant": {
@@ -66,6 +67,16 @@
 					"captures": {
 						"1": { "name": "keyword.operator" }
 					}
+				}
+			]
+		},
+
+		"variable": {
+			"name": "variable",
+			"patterns": [
+				{
+					"name": "variable",
+					"match": "([A-Za-z])([A-Za-z0-9_])*"
 				}
 			]
 		},
@@ -472,6 +483,7 @@
 				{ "include": "#call" },
 				{ "include": "#opperator" },
 				{ "include": "#string" },
+				{ "include": "#variable" },
 				{ "include": "#constant" }
 			]
 		}
