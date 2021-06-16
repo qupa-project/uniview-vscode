@@ -196,7 +196,7 @@
 			"patterns": [
 				{
 					"name": "meta.function.uv",
-					"begin": "\\b(fn)\\s+([A-Za-z0-9_]+)\\((.*)\\)\\s*((\\:)\\s([A-Za-z0-9_]+))?\\s*{",
+					"begin": "\\b(fn)\\s+([A-Za-z0-9_]+)\\s*\\((.*)\\)\\s*((\\:)\\s([A-Za-z0-9_]+))?\\s*{",
 					"beginCaptures": {
 						"1": {
 							"name": "storage.type.function"
@@ -235,7 +235,7 @@
 			"patterns": [
 				{
 					"name": "variable.parameter",
-					"match": "\\b([A-Za-z0-9_]+)\\s*(:)\\s*(@)?([A-Za-z0-9_\\.]+)\\s*(,)?",
+					"match": "\\b([A-Za-z0-9_]+)\\s*(:)\\s*(@|#)?([A-Za-z0-9_\\.]+)\\s*(,)?",
 					"captures": {
 						"1": {
 							"name": "variable.parameter"
@@ -444,11 +444,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control",
-					"match": "\\b(if|elif|else|as)[\\s\\;]"
+					"match": "\\b(if|elif|else)\\b"
 				},
 				{
 					"name": "keyword.control.import",
-					"match": "\\b(import)\\b"
+					"match": "\\b(import|include|as)\\b"
 				},
 				{
 					"name": "keyword.control.flow",
@@ -465,6 +465,10 @@
 				{
 					"name": "keyword.operator.arithmetic",
 					"match": "\\-|\\+|\\=|\\*|\\/|\\%"
+				},
+				{
+					"name": "keyword.operator.ternary",
+					"match": "\\?|\\:"
 				},
 				{
 					"name": "keyword.operator.logical",
