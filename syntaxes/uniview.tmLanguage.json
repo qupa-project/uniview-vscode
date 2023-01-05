@@ -12,11 +12,7 @@
 
 		{"include": "#keyword"},
 		{"include": "#declare"},
-		{"include": "#call"},
-		{"include": "#variable"},
-		{"include": "#constant"},
-		{"include": "#punctuation"},
-		{"include": "#opperator"}
+		{"include": "#call"}
 	],
 	"repository": {
 		"constant": {
@@ -118,10 +114,10 @@
 		"punctuation": {
 			"name": "punctuation",
 			"patterns": [
-				{"name": "punctuation.separator.delimiter.comma", "match": "," },
-				{"name": "punctuation.terminator.statement", "match": ";" },
-				{"name": "punctuation.definition.block", "match": "(\\{|\\})" },
-				{"name": "meta.brace.round", "match": "(\\(|\\))" }
+				{ "name": "punctuation.separator.delimiter.comma", "match": "," },
+				{ "name": "punctuation.terminator.statement", "match": ";" },
+				{ "name": "punctuation.definition.block", "match": "(\\{|\\})" },
+				{ "name": "meta.brace.round", "match": "(\\(|\\))" }
 			]
 		},
 
@@ -129,12 +125,8 @@
 			"name": "meta.storage",
 			"begin": "\\b(external)\\s+(export|assume)\\s*{",
 			"beginCaptures": {
-				"1": {
-					"name": "storage.type.extern"
-				},
-				"2": {
-					"name": "keyword.storage"
-				}
+				"1": { "name": "storage.type.extern" },
+				"2": { "name": "keyword.storage" }
 			},
 			"end": "}",
 			"patterns": [
@@ -151,24 +143,14 @@
 					"name": "declare",
 					"begin": "\\b(let)\\s+([A-Za-z0-9_]*)(\\:\\s([A-Za-z0-9_]+))?\\s(=)",
 					"beginCaptures": {
-						"1": {
-							"name": "storage.type"
-						},
-						"2": {
-							"name": "variable"
-						},
-						"4": {
-							"name": "storage.type"
-						},
-						"5": {
-							"name": "keyword.operator"
-						}
+						"1": { "name": "storage.type" },
+						"2": { "name": "variable" },
+						"4": { "name": "storage.type" },
+						"5": { "name": "keyword.operator" }
 					},
 					"end": "(;)",
 					"endCaptures": {
-						"1": {
-							"name": "punctuation.terminator.statement"
-						}
+						"1": { "name": "punctuation.terminator.statement" }
 					},
 					"patterns": [
 						{ "include": "#expression" }
@@ -178,18 +160,10 @@
 					"name": "declare",
 					"match": "\\b(let)\\s+([A-Za-z0-9_]*)(\\:\\s([A-Za-z0-9_]+))\\s*(;)",
 					"captures": {
-						"1": {
-							"name": "storage.type"
-						},
-						"2": {
-							"name": "variable"
-						},
-						"4": {
-							"name": "storage.type"
-						},
-						"5": {
-							"name": "punctuation.terminator.statement"
-						}
+						"1": { "name": "storage.type" },
+						"2": { "name": "variable" },
+						"4": { "name": "storage.type" },
+						"5": { "name": "punctuation.terminator.statement" }
 					}
 				}
 			]
@@ -201,33 +175,24 @@
 					"name": "meta.function.uv",
 					"begin": "\\b(fn)\\s+([A-Za-z0-9_]+)\\s*\\((.*)\\)\\s*((\\:)\\s([A-Za-z0-9_]+))?\\s*{",
 					"beginCaptures": {
-						"1": {
-							"name": "storage.type.function"
-						},
-						"2": {
-							"name": "entity.name.function"
-						},
+						"1": { "name": "storage.type.function" },
+						"2": { "name": "entity.name.function" },
 						"3": {
 							"patterns": [
-								{
-									"include": "#function.parameter"
-								}
+								{ "include": "#function.parameter" }
 							]
 						},
-						"5": {
-							"name": "keyword.operator"
-						},
-						"6": {
-							"name": "storage.type"
-						}
+						"5": { "name": "keyword.operator" },
+						"6": { "name": "storage.type" }
 					},
 					"end": "\\}",
 					"patterns": [
 						{"include": "#comment"},
 						{"include": "#constant"},
 						{"include": "#punctuation"},
+						{"include": "#return"},
 						{"include": "#keyword"},
-						{"include": "#opperator"},
+						{"include": "#operator"},
 						{"include": "#call"},
 						{"include": "#declare"}
 					]
@@ -244,7 +209,7 @@
 							"name": "variable.parameter"
 						},
 						"2": {
-							"name": "keyword.opperator"
+							"name": "keyword.operator"
 						},
 						"3": {
 							"name": "keyword.operator"
@@ -330,12 +295,8 @@
 					"name": "meta.block.struct",
 					"begin": "\\b(struct)\\s+([A-Za-z0-9_]+)\\s*{",
 					"beginCaptures": {
-						"1": {
-							"name": "storage.type.struct"
-						},
-						"2": {
-							"name": "entity.name.type"
-						}
+						"1": { "name": "storage.type.struct" },
+						"2": { "name": "entity.name.type" }
 					},
 					"end": "}",
 					"patterns": [
@@ -343,42 +304,44 @@
 							"name": "meta.body.struct",
 							"match": "\\b([A-Za-z0-9_]+)\\s*(:)\\s*([A-Za-z0-9_\\.]+)(;)",
 							"captures": {
-								"1": {
-									"name": "variable"
-								},
-								"2": {
-									"name": "keyword.opperator"
-								},
-								"3": {
-									"name": "storage.type"
-								},
-								"4": {
-									"name": "punctuation.terminator.statement"
-								}
+								"1": { "name": "variable" },
+								"2": { "name": "keyword.operator" },
+								"3": { "name": "storage.type" },
+								"4": { "name": "punctuation.terminator.statement" }
 							}
 						},
-						{
-							"include": "#comment"
-						}
+						{ "include": "#comment" }
 					]
 				}
 			]
 		},
 
 		"struct.expr": {
+			"name": "storage.type.struct",
 			"patterns": [
 				{
-					"begin": "([A-Za-z0-9_]+)\\s*{",
+					"begin": "\\b(new)\\s+([A-Za-z0-9_]+)\\s*{",
 					"beginCaptures": {
-						"1": {
-							"name": "entity.name.type"
-						}
+						"1": { "name": "keyword.operator.new" },
+						"2": { "name": "entity.name.type" }
 					},
 					"end": "}",
 					"patterns": [
 						{
-							"include": "#expression"
-						}
+							"name": "meta.body.struct",
+							"begin": "\\b([A-Za-z0-9_]+)\\s*(:)\\s*",
+							"beginCaptures": {
+								"1": { "name": "variable" },
+								"2": { "name": "keyword.operator" },
+								"3": { "name": "storage.type" }
+							},
+							"end": "(;)",
+							"endCaptures": { "1": "punctuation.terminator.statement" },
+							"patterns": [
+								{ "include": "#expression" }
+							]
+						},
+						{ "include": "#comment" }
 					]
 				}
 			]
@@ -390,21 +353,13 @@
 					"name": "meta.block.trait",
 					"begin": "\\b(trait)\\s+([A-Za-z0-9_]+)\\s*{",
 					"beginCaptures": {
-						"1": {
-							"name": "keyword"
-						},
-						"2": {
-							"name": "entity.name.type"
-						}
+						"1": { "name": "keyword" },
+						"2": { "name": "entity.name.type" }
 					},
 					"end": "}",
 					"patterns": [
-						{
-							"include": "#comment"
-						},
-						{
-							"include": "#function.head"
-						}
+						{ "include": "#comment" },
+						{ "include": "#function.head" }
 					]
 				}
 			]
@@ -415,27 +370,15 @@
 					"name": "meta.block.impl",
 					"begin": "\\b(impl)\\s+([A-Za-z0-9_]+)(\\s+(for)\\s+([A-Za-z0-9_\\.]+))?\\s*{",
 					"beginCaptures": {
-						"1": {
-							"name": "keyword"
-						},
-						"2": {
-							"name": "entity.name.type"
-						},
-						"4": {
-							"name": "keyword"
-						},
-						"5": {
-							"name": "entity.name.type"
-						}
+						"1": { "name": "keyword" },
+						"2": { "name": "entity.name.type" },
+						"4": { "name": "keyword" },
+						"5": { "name": "entity.name.type" }
 					},
 					"end": "}",
 					"patterns": [
-						{
-							"include": "#comment"
-						},
-						{
-							"include": "#function"
-						}
+						{ "include": "#comment" },
+						{ "include": "#function" }
 					]
 				}
 			]
@@ -448,12 +391,8 @@
 					"name": "function.call",
 					"begin": "\\b([A-Za-z0-9_\\.]*)\\s*((#)\\[(.*?)\\])?\\s*\\(",
 					"beginCaptures": {
-						"1": {
-							"name": "entity.name.function"
-						},
-						"2": {
-							"name": "keyword.storage"
-						},
+						"1": { "name": "entity.name.function" },
+						"2": { "name": "keyword.storage" },
 						"4": {
 							"name": "meta.template.call",
 							"patterns": [
@@ -492,11 +431,11 @@
 				}
 			]
 		},
-		"opperator": {
+		"operator": {
 			"patterns": [
 				{
 					"name": "keyword.operator",
-					"match": "\\@|\\$|\\~"
+					"match": "\\@|\\$"
 				},
 				{
 					"name": "keyword.operator.arithmetic",
@@ -517,15 +456,29 @@
 			]
 		},
 
+		"return": {
+			"begin": "\\b(return)\\s+",
+			"beginCaptures": {
+				"1": { "name": "keyword.control.return" }
+			},
+			"end": "(;)",
+			"endCaptures": {
+				"1": { "name": "punctuation.terminator.statement" }
+			},
+			"patterns": [
+				{ "include": "#expression" }
+			]
+		},
+
 		"expression": {
 			"name": "expression",
 			"patterns": [
-				{ "include": "#call" },
-				{ "include": "#opperator" },
+				{ "include": "#operator" },
 				{ "include": "#string" },
 				{ "include": "#struct.expr" },
-				{ "include": "#variable" },
+				{ "include": "#call" },
 				{ "include": "#constant" },
+				{ "include": "#variable" },
 				{ "include": "#comment" }
 			]
 		}
