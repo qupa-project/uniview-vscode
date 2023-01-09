@@ -469,7 +469,7 @@
 		"branch": {
 			"patterns": [
 				{
-					"begin": "\\b(if|elif|else)\\s\\((.*)\\)\\s*{",
+					"begin": "\\b(if|elif)\\s*\\((.*)\\)\\s*{",
 					"beginCaptures": {
 						"1": { "name": "keyword.control.flow" },
 						"2": {
@@ -482,9 +482,19 @@
 					"patterns": [
 						{ "include": "#function.body" }
 					]
+				}, {
+					"begin": "\\b(else)\\s*{",
+					"beginCaptures": {
+						"1": { "name": "keyword.control.flow" }
+					},
+					"end": "}",
+					"patterns": [
+						{ "include": "#function.body" }
+					]
 				}
 			]
 		},
+
 
 
 		"call": {
