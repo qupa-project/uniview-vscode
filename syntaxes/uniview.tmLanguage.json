@@ -265,7 +265,7 @@
 			"patterns": [
 				{
 					"name": "variable.parameter",
-					"match": "\\b(\\w+)\\s*(:)\\s*(@|&)?(\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*\\s*(,)?",
+					"match": "\\b(\\w+)\\s*(:)\\s*(@|\\$)?(\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*\\s*(,)?",
 					"captures": {
 						"1": {
 							"name": "variable.parameter"
