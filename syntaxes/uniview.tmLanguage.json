@@ -378,10 +378,11 @@
 			"patterns": [
 				{
 					"name": "declare.uv",
-					"begin": "\\b(let)\\s+(\\w+)((:)\\s*(\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*)?\\s(=)",
+					"begin": "\\b(let)\\s+(\\w+)\\s*(:)\\s*((\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*)?\\s*(=)",
 					"beginCaptures": {
 						"1": { "name": "storage.type.uv" },
 						"2": { "name": "variable.uv" },
+						"3": { "name": "keyword.operator.uv" },
 						"4": { "name": "keyword.operator.uv" },
 						"5": { "name": "storage.type.uv" },
 						"7": { "name": "storage.type.uv" },
@@ -399,7 +400,7 @@
 				},
 				{
 					"name": "declare.uv",
-					"match": "\\b(let)\\s+(\\w+)(:)\\s(\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*\\s*(;)",
+					"match": "\\b(let)\\s+(\\w+)(:)\\s*(\\w+)((\\.\\w+)|((#)\\[(.*?)\\]))*\\s*(;)",
 					"captures": {
 						"1": { "name": "storage.type.uv" },
 						"2": { "name": "variable.uv" },
@@ -583,7 +584,7 @@
 				},
 				{
 					"name": "keyword.operator.logical",
-					"match": "\\!|\\&\\&|\\|\\||\\!|\\<=?|\\>=?|==|\\!="
+					"match": "\\!=?|\\&\\&|\\|\\||\\!|\\<=?|\\>=?|=="
 				},
 				{
 					"name": "keyword.operator.pipe",
